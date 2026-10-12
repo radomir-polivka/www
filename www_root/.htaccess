@@ -1,0 +1,5 @@
+# /Thorens-TP-90/ -> index.php?a=Thorens-TP-90 (one rule for all articles; real files like images are not affected)
+RewriteEngine On
+# add the trailing slash ourselves, otherwise Apache adds it and exposes ?a=... in the address
+RewriteRule ^[A-Za-z0-9-]+$ %{REQUEST_URI}/ [R=301,L]
+RewriteRule ^([A-Za-z0-9-]+)/$ index.php?a=$1 [L,QSA]

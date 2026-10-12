@@ -1,0 +1,112 @@
+:root {
+  --text: #222;
+  --muted: #666;
+  --bg: #fff;
+  --line: #ddd;
+  --stripe: #f5f5f3;
+  --link: #1a5fb4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ddd;
+    --muted: #999;
+    --bg: #1b1b1b;
+    --line: #3a3a3a;
+    --stripe: #242424;
+    --link: #78aeed;
+  }
+}
+
+body {
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  max-width: 60rem;
+  font: 16px/1.55 system-ui, "Segoe UI", Roboto, Verdana, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a { color: var(--link); }
+
+header {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+}
+header a { color: var(--muted); text-decoration: none; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: .5rem;
+  border-top: 1px solid var(--line);
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+h1 { font-size: 1.6rem; line-height: 1.25; }
+h2 { font-size: 1.25rem; margin-top: 2rem; }
+h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+
+p, li { max-width: 45rem; text-align: justify; }
+li { margin: .25rem 0; }
+
+img { max-width: 100%; height: auto; }
+figure { margin: 1.5rem 0; }
+/* Small cover picture at the start of a paragraph: floats left; the text and lists that follow wrap around it
+   until the next heading. */
+p > img { float: left; margin: .2rem 1rem .5rem 0; }
+/* A paragraph that starts with its own cover begins below any earlier cover instead of beside it. */
+p:has(> img:first-child) { clear: left; }
+/* A list beside a cover must end where the paragraphs end (45rem from the left edge of the page). */
+ul, ol { display: flow-root; margin-right: max(0px, calc(100% - 45rem)); }
+h2, h3, h4 { clear: left; }
+figcaption { max-width: 45rem; font-size: .85rem; color: var(--muted); }
+
+/* Tables scroll sideways on narrow screens instead of breaking the page. */
+table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: .8rem;
+  margin: 1rem 0;
+}
+th, td {
+  padding: .35rem .6rem;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  text-align: center;
+  vertical-align: top;
+}
+th { vertical-align: bottom; border-top: 1px solid var(--line); border-bottom: 2px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+/* A column can be left-aligned per table: <colgroup><col><col align="left">...</colgroup> (one <col> per column). */
+table:has(> colgroup > col:nth-child(2)[align="left"]) :is(th, td):nth-child(2) { text-align: left; }
+table:has(> colgroup > col:nth-child(3)[align="left"]) :is(th, td):nth-child(3) { text-align: left; }
+table:has(> colgroup > col:nth-child(4)[align="left"]) :is(th, td):nth-child(4) { text-align: left; }
+table:has(> colgroup > col:nth-child(5)[align="left"]) :is(th, td):nth-child(5) { text-align: left; }
+table:has(> colgroup > col:nth-child(6)[align="left"]) :is(th, td):nth-child(6) { text-align: left; }
+table:has(> colgroup > col:nth-child(7)[align="left"]) :is(th, td):nth-child(7) { text-align: left; }
+table:has(> colgroup > col:nth-child(8)[align="left"]) :is(th, td):nth-child(8) { text-align: left; }
+table:has(> colgroup > col:nth-child(9)[align="left"]) :is(th, td):nth-child(9) { text-align: left; }
+table:has(> colgroup > col:nth-child(10)[align="left"]) :is(th, td):nth-child(10) { text-align: left; }
+table:has(> colgroup > col:nth-child(11)[align="left"]) :is(th, td):nth-child(11) { text-align: left; }
+table:has(> colgroup > col:nth-child(12)[align="left"]) :is(th, td):nth-child(12) { text-align: left; }
+th:last-child, td:last-child { border-right: 1px solid var(--line); }
+td { white-space: nowrap; }
+td:first-child { font-weight: bold; }
+/* Narrow screens (phones). */
+@media (max-width: 40rem) {
+  /* Justified text leaves ugly gaps in short lines. */
+  p, li { text-align: left; }
+  /* Easier to tap: more space around the home page links and the header link (articles keep normal spacing). */
+  .home li { margin: .6rem 0; }
+  header a { display: inline-block; padding: .4rem 0; }
+}
+/* MOBILE-COVER: cover picture on its own line instead of floating beside the text (delete this block to restore the float). */
+@media (max-width: 40rem) {
+  p > img { float: none; display: block; margin: .2rem 0 .75rem; }
+}
+abbr[title] { cursor: help; text-decoration: underline dotted; }
+/* Row groups: write one <tbody> per group; every second group is shaded. */
+tbody:nth-of-type(even) { background: var(--stripe); }

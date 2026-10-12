@@ -1,0 +1,6 @@
+# secrets (FTP password) and the old FTP upload
+info.txt
+upload.ps1
+# not part of the site
+__old_version/
+resources/

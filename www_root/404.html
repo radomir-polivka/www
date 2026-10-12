@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="author" content="Radomír Polívka">
+  <title>Not found – radekpolivka.cz</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><a href="/">radekpolivka.cz</a></header>
+  <main>
+<h1>Not found</h1><p>There is no such page. Try the <a href="/">home page</a>.</p>
+  </main>
+  <footer>
+    <a href="mailto:radomir.polivka@gmail.com">radomir.polivka@gmail.com</a>
+  </footer>
+  <script>
+    // Links to other sites open in a new tab; the article sources stay plain HTML.
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      if (a.host && a.host !== location.host) { a.target = '_blank'; a.rel = 'noopener'; }
+    });
+  </script>
+</body>
+</html>

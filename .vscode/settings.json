@@ -1,0 +1,19 @@
+{
+  // Saving a fragment (home.html, <name>/article.html) regenerates the static pages.
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "www_root[\\\\/](home\\.html|[^\\\\/]+[\\\\/]article\\.html)$",
+        "cmd": "python \"${workspaceFolder}\\build.py\""
+      }
+    ]
+  },
+  // Local preview of www_root ("Go Live" in the status bar), reloads on changes.
+  // Fragments are ignored: the reload happens when build.py writes the generated index.html.
+  "liveServer.settings.root": "/www_root",
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "**/article.html",
+    "**/home.html"
+  ]
+}
