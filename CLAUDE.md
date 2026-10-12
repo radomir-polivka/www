@@ -11,7 +11,8 @@ D:\project\www\
   __old_version\   old site, archived, not published
   originals\       full-size source photos (not published; web-size copies go into the article dir)
   build.py         static generator: home.html -> index.html, <name>/article.html -> <name>/index.html,
-                   + 404.html; <title> from the first <h1>, footer date from the fragment's mtime
+                   + 404.html; <title> from the first <h1>, footer date from the fragment's mtime;
+                   GoatCounter statistics script (https://radekp.goatcounter.com)
   .github\workflows\pages.yml   on push to main, publishes www_root to GitHub Pages
   .vscode\         settings.json: build.py on save (Run on Save ext.), Live Server root = www_root;
                    tasks.json "Publish site" -> publish.ps1 (bound to Ctrl+F9 in the user keybindings)
