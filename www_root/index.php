@@ -59,7 +59,8 @@ if ($name !== '' && preg_match('~<h1[^>]*>(.*?)</h1>~is', $content, $m)) {
 <?= $content ?>
   </main>
   <footer>
-    <a href="mailto:<?= EMAIL ?>"><?= EMAIL ?></a><?php if ($updated): ?> · updated <?= $updated ?><?php endif ?>
+    <a href="<?= $root ?>"><?= SITE_NAME ?></a>
+    <span><a href="mailto:<?= EMAIL ?>"><?= EMAIL ?></a><?php if ($updated): ?> · updated <?= $updated ?><?php endif ?></span>
   </footer>
   <script>
     // Links to other sites open in a new tab; the article sources stay plain HTML.

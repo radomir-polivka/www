@@ -2,14 +2,13 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Upload current file",
+      "label": "Publish site",
       "type": "process",
       "command": "powershell.exe",
       "args": [
         "-NoProfile",
         "-ExecutionPolicy", "Bypass",
-        "-File", "${workspaceFolder}\\.vscode\\upload-file.ps1",
-        "${file}"
+        "-File", "${workspaceFolder}\\.vscode\\publish.ps1"
       ],
       "presentation": { "reveal": "always", "panel": "shared", "clear": true },
       "problemMatcher": []

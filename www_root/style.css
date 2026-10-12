@@ -42,7 +42,15 @@ footer {
   border-top: 1px solid var(--line);
   font-size: .8rem;
   color: var(--muted);
+  /* Home link on the left, e-mail and date pushed to the right (wraps under each other if too narrow). */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .25rem 1rem;
 }
+/* The home link looks the same as the one in the header. */
+footer > a { font-size: 1rem; color: var(--muted); text-decoration: none; }
 
 h1 { font-size: 1.6rem; line-height: 1.25; }
 h2 { font-size: 1.25rem; margin-top: 2rem; }
@@ -101,7 +109,7 @@ td:first-child { font-weight: bold; }
   p, li { text-align: left; }
   /* Easier to tap: more space around the home page links and the header link (articles keep normal spacing). */
   .home li { margin: .6rem 0; }
-  header a { display: inline-block; padding: .4rem 0; }
+  header a, footer > a { display: inline-block; padding: .4rem 0; }
 }
 /* MOBILE-COVER: cover picture on its own line instead of floating beside the text (delete this block to restore the float). */
 @media (max-width: 40rem) {

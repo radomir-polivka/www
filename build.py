@@ -34,7 +34,8 @@ LAYOUT = '''<!DOCTYPE html>
 {content}
   </main>
   <footer>
-    <a href="mailto:{email}">{email}</a>{updated}
+    <a href="/">{site}</a>
+    <span><a href="mailto:{email}">{email}</a>{updated}</span>
   </footer>
   <script>
     // Links to other sites open in a new tab; the article sources stay plain HTML.
