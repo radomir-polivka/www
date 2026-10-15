@@ -97,6 +97,8 @@ th, td {
 }
 th { vertical-align: bottom; border-top: 1px solid var(--line); border-bottom: 2px solid var(--line); }
 th:first-child, td:first-child { text-align: left; }
+/* A table without a header row still needs its top border. */
+table:not(:has(th)) > tbody:first-of-type > tr:first-child > td { border-top: 1px solid var(--line); }
 /* A column can be left-aligned per table: <colgroup><col><col align="left">...</colgroup> (one <col> per column). */
 table:has(> colgroup > col:nth-child(2)[align="left"]) :is(th, td):nth-child(2) { text-align: left; }
 table:has(> colgroup > col:nth-child(3)[align="left"]) :is(th, td):nth-child(3) { text-align: left; }
