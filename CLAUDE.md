@@ -5,11 +5,11 @@
 ```
 D:\project\www\
   CLAUDE.md        this file (in the public git repo – never put secrets here)
-  .gitignore       keeps info.txt, upload.ps1, __old_version\, resources\, originals\ out of the repo
+  .gitignore       keeps info.txt, upload.ps1, __old_version\, resources\ out of the repo
   info.txt         old hosting notes incl. FTP password – never read it into a conversation, never commit it
   upload.ps1       old curl-based FTP upload script, unused
   __old_version\   old site, archived, not published
-  originals\       full-size source photos (not published; web-size copies go into the article dir)
+  resources\       not published: <article>\ full-size source photos (web-size copies go into the article dir)
   build.py         static generator: home.html -> index.html, <name>/article.html -> <name>/index.html,
                    + 404.html; <title> from the first <h1>, footer date from the fragment's mtime;
                    GoatCounter statistics script (https://radekp.goatcounter.com)

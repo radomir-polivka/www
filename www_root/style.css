@@ -30,6 +30,7 @@ body {
 a { color: var(--link); }
 
 header {
+  max-width: 45rem;
   padding-bottom: .5rem;
   border-bottom: 1px solid var(--line);
   margin-bottom: 1.5rem;
@@ -37,6 +38,7 @@ header {
 header a { color: var(--muted); text-decoration: none; }
 
 footer {
+  max-width: 45rem;
   margin-top: 3rem;
   padding-top: .5rem;
   border-top: 1px solid var(--line);
@@ -60,6 +62,7 @@ p, li { max-width: 45rem; text-align: justify; }
 li { margin: .25rem 0; }
 
 img { max-width: 100%; height: auto; }
+audio { width: 11rem; max-width: 100%; vertical-align: middle; }
 figure { margin: 1.5rem 0; }
 /* Small cover picture at the start of a paragraph: floats left; the text and lists that follow wrap around it
    until the next heading. */
@@ -69,6 +72,8 @@ p:has(> img:first-child) { clear: left; }
 /* A list beside a cover must end where the paragraphs end (45rem from the left edge of the page). */
 ul, ol { display: flow-root; margin-right: max(0px, calc(100% - 45rem)); }
 h2, h3, h4 { clear: left; }
+hr { clear: left; max-width: 45rem; border: 0; border-top: 1px solid var(--line); margin: 2rem 0 0; }
+hr + h2 { margin-top: 1rem; }
 figcaption { max-width: 45rem; font-size: .85rem; color: var(--muted); }
 
 /* Tables scroll sideways on narrow screens instead of breaking the page. */

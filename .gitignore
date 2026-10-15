@@ -3,6 +3,8 @@ info.txt
 upload.ps1
 # not part of the site
 __old_version/
+# full-size source photos etc. (web versions are in www_root)
 resources/
-# full-size source photos (web versions are in www_root)
-originals/
+
+# lossless audio sources (the article uses the MP3 versions)
+*.wav
