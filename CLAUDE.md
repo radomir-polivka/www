@@ -21,9 +21,10 @@ D:\project\www\
     index.php      leftover from the PHP hosting (layout now lives in build.py), unused
     index.html     GENERATED from home.html; <name>/index.html GENERATED from article.html – never edit
     404.html       GENERATED
+    sitemap.xml    GENERATED (home page + every article directory, submitted in Google Search Console)
     home.html      home page fragment (list of article links; grouping lives only here)
     style.css      all formatting (light/dark, tables scroll sideways on narrow screens)
-    robots.txt     allows everything
+    robots.txt     allows everything, points to sitemap.xml
     <article>\     one directory per article: article.html (+ its images)
 ```
 

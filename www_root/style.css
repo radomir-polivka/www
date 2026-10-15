@@ -75,6 +75,10 @@ h2, h3, h4 { clear: left; }
 hr { clear: left; max-width: 45rem; border: 0; border-top: 1px solid var(--line); margin: 2rem 0 0; }
 hr + h2 { margin-top: 1rem; }
 figcaption { max-width: 45rem; font-size: .85rem; color: var(--muted); }
+/* Cover with a list of links beside it: <figure><img ...><ul><li>...</li></ul></figure>; the text follows below. */
+figure:has(> img + ul) { display: flex; align-items: flex-start; gap: 1rem; margin: .5rem 0 1rem; }
+figure:has(> img + ul) > ul { list-style: none; padding: 0; margin: 0; }
+figure:has(> img + ul) li { margin: 0 0 .15rem; text-align: left; }
 
 /* Tables scroll sideways on narrow screens instead of breaking the page. */
 table {

@@ -2,6 +2,7 @@
     home.html                -> index.html
     <name>/article.html      -> <name>/index.html
     (built-in)               -> 404.html
+    (all of the above)       -> sitemap.xml (home page + every article, lastmod = fragment mtime)
 Static replacement of index.php (same layout); the <title> comes from the first <h1>, the
 "updated" date from the fragment's modification time. A file is written only when its content
 changes, so unchanged pages keep their mtime and stay out of git diffs.
@@ -13,6 +14,7 @@ import re
 import sys
 
 SITE_NAME = 'radekpolivka.cz'
+BASE_URL = 'https://radekpolivka.cz/'
 AUTHOR = 'Radomír Polívka'
 EMAIL = 'radomir.polivka@gmail.com'
 
@@ -67,10 +69,22 @@ def render(content, title=None, updated=None, home=False):
         updated=f' · updated {updated}' if updated else '')
 
 
+def modified(fragment):
+    return datetime.date.fromtimestamp(fragment.stat().st_mtime).isoformat()
+
+
 def build_page(fragment, target, home=False):
     content = fragment.read_text(encoding='utf-8')
-    updated = datetime.date.fromtimestamp(fragment.stat().st_mtime).isoformat()
-    return write(target, render(content, updated=updated, home=home))
+    return write(target, render(content, updated=modified(fragment), home=home))
+
+
+def sitemap(pages):
+    """pages: list of (path, date); path is relative to the site root ('' = home page)."""
+    urls = ''.join(f'  <url><loc>{BASE_URL}{path}</loc><lastmod>{date}</lastmod></url>\n'
+                   for path, date in pages)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f'{urls}</urlset>\n')
 
 
 def write(target, text):
@@ -83,6 +97,7 @@ def write(target, text):
 
 def main():
     changed = []
+    pages = [('', modified(ROOT / 'home.html'))]
     if build_page(ROOT / 'home.html', ROOT / 'index.html', home=True):
         changed.append('index.html')
     if write(ROOT / '404.html', render(NOT_FOUND, title=f'Not found – {SITE_NAME}')):
@@ -92,8 +107,11 @@ def main():
         if not re.fullmatch(r'[A-Za-z0-9-]+', name):
             print(f'skipped (invalid name): {name}', file=sys.stderr)
             continue
+        pages.append((f'{name}/', modified(fragment)))
         if build_page(fragment, fragment.parent / 'index.html'):
             changed.append(f'{name}/index.html')
+    if write(ROOT / 'sitemap.xml', sitemap(pages)):
+        changed.append('sitemap.xml')
     print('written: ' + (', '.join(changed) if changed else 'nothing changed'))
 
 

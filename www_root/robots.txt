@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://radekpolivka.cz/sitemap.xml
