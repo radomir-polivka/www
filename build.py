@@ -16,7 +16,7 @@ import sys
 SITE_NAME = 'radekpolivka.cz'
 BASE_URL = 'https://radekpolivka.cz/'
 AUTHOR = 'Radomír Polívka'
-EMAIL = 'radomir.polivka@gmail.com'
+EMAIL = 'radekpoliv@gmail.com'
 
 ROOT = pathlib.Path(__file__).resolve().parent / 'www_root'
 

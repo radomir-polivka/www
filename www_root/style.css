@@ -37,6 +37,12 @@ header {
 }
 header a { color: var(--muted); text-decoration: none; }
 
+/* The content contains its floated covers, so a cover at the very end does not reach into the footer. */
+main { display: flow-root; }
+/* ...and keeps the spacing to the header and footer as it was when margins collapsed through main. */
+main > :first-child { margin-top: 0; }
+main > :last-child { margin-bottom: 0; }
+
 footer {
   max-width: 45rem;
   margin-top: 3rem;

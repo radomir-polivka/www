@@ -9,7 +9,8 @@
 
 const SITE_NAME = 'radekpolivka.cz';
 const AUTHOR    = 'Radomír Polívka';
-const EMAIL     = 'radomir.polivka@gmail.com';
+//const EMAIL     = 'radomir.polivka@gmail.com';
+const EMAIL     = 'radekpoliv@gmail.com';
 
 $root = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/') . '/';
 $name = isset($_GET['a']) ? $_GET['a'] : '';
