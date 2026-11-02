@@ -101,7 +101,7 @@ figure:has(> table) {
 figure:has(> table) > table {
   display: table;
   table-layout: fixed;
-  width: 70rem;
+  width: 60rem;
   margin: 0;
 }
 th, td {
