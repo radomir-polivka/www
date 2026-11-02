@@ -94,6 +94,16 @@ table {
   font-size: .8rem;
   margin: 1rem 0;
 }
+figure:has(> table) {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+figure:has(> table) > table {
+  display: table;
+  table-layout: fixed;
+  width: 70rem;
+  margin: 0;
+}
 th, td {
   padding: .35rem .6rem;
   border-bottom: 1px solid var(--line);
